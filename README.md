@@ -1,6 +1,16 @@
 # web-server-from-scratch
 Learn more about web server, from socket to http server to web framework.
 
+## Learn from source code
+This project aim to learn tcp server, http server and wsgi server from Python3 lib. 
+
+If you already know these concepts, go through the following notebooks.
+* [TCP Server](https://nbviewer.jupyter.org/github/wzpfish/web-server-from-scratch/blob/master/tcpserver.ipynb)
+* [HTTP Server](https://nbviewer.jupyter.org/github/wzpfish/web-server-from-scratch/blob/master/httpserver.ipynb)
+* [WSGI Server](https://nbviewer.jupyter.org/github/wzpfish/web-server-from-scratch/blob/master/wsgi.ipynb)
+
+else, read the following explaination and come back to the notebooks.
+
 ## Web Server? Web application? Web framework?
 我们都知道，一个完整的HTTP连接主要有如下流程：
 1. client和server建立TCP连接
@@ -43,6 +53,7 @@ def start_response(status, response_headers, exc_info=None):
     return write
 ```
 2. 要做什么?
+
 对于每个client过来的请求，通过调用application提供的callable来获取请求处理结果。
 
 对于application:
@@ -62,7 +73,5 @@ def app(env, start_response):
 即提供一个callable对象，可以是函数，类或类对象等等，总之能调用就行。调用该对象需要传入两个参数，env和start_response。
 
 2. 要做什么？
-callable在执行时，必须在返回data前调用start_response将status和headers设上。
 
-## Learn from source code
-接下来，从Python库的源码来进一步学习web server，web application以及WSGI。
+callable在执行时，必须在返回data前调用start_response将status和headers设上。
